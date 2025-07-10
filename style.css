@@ -14,36 +14,33 @@ html {
 body {
   font-family: 'Nunito', sans-serif;
   font-weight: 400;
-  min-height: 100vh;
+  height: 100vh;
   color: #333;
   background-image: linear-gradient(to top left, #753682 0%, #bf2e34 100%);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 2rem;
+  padding: 1rem;
 }
 
 /* LAYOUT */
 main {
   position: relative;
-  width: 100%;
-  max-width: 100rem;
-  height: auto;
-  min-height: 60rem;
+  width: 100rem;
+  height: 60rem;
   background-color: rgba(255, 255, 255, 0.35);
   backdrop-filter: blur(200px);
+  filter: blur();
   box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.25);
   border-radius: 9px;
   overflow: hidden;
   display: flex;
   flex-wrap: wrap;
-  gap: 2rem;
 }
 
-/* PLAYER */
 .player {
-  flex: 1 1 45%;
-  padding: 5rem 3rem;
+  flex: 50%;
+  padding: 9rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -53,31 +50,27 @@ main {
 /* ELEMENTS */
 .name {
   position: relative;
-  font-size: 3.2rem;
+  font-size: 4rem;
   text-transform: uppercase;
   letter-spacing: 1px;
   word-spacing: 2px;
   font-weight: 300;
   margin-bottom: 1rem;
-  text-align: center;
 }
 
 .score {
-  font-size: 6rem;
+  font-size: 8rem;
   font-weight: 300;
   color: #c7365f;
   margin-bottom: auto;
-  text-align: center;
 }
 
 .player--active {
   background-color: rgba(255, 255, 255, 0.4);
 }
-
 .player--active .name {
   font-weight: 700;
 }
-
 .player--active .score {
   font-weight: 400;
 }
@@ -91,23 +84,21 @@ main {
   opacity: 0.8;
   border-radius: 9px;
   color: #fff;
-  width: 100%;
+  width: 65%;
   padding: 2rem;
   text-align: center;
   transition: all 0.75s;
-  max-width: 30rem;
-  margin-top: 2rem;
 }
 
 .current-label {
   text-transform: uppercase;
   margin-bottom: 1rem;
-  font-size: 1.5rem;
+  font-size: 1.7rem;
   color: #ddd;
 }
 
 .current-score {
-  font-size: 3rem;
+  font-size: 3.5rem;
 }
 
 /* ABSOLUTE POSITIONED ELEMENTS */
@@ -124,14 +115,11 @@ main {
   cursor: pointer;
   font-weight: 400;
   transition: all 0.2s;
-
   background-color: rgba(255, 255, 255, 0.6);
   backdrop-filter: blur(10px);
-
   padding: 0.7rem 2.5rem;
   border-radius: 50rem;
   box-shadow: 0 1.75rem 3.5rem rgba(0, 0, 0, 0.1);
-  z-index: 10;
 }
 
 .btn::first-letter {
@@ -141,13 +129,13 @@ main {
 }
 
 .btn--new {
-  top: 2rem;
+  top: 4rem;
 }
 .btn--roll {
-  top: 80%;
+  top: 39.3rem;
 }
 .btn--hold {
-  top: 88%;
+  top: 46.1rem;
 }
 
 .btn:active {
@@ -162,12 +150,10 @@ main {
 .dice {
   position: absolute;
   left: 50%;
-  top: 45%;
-  transform: translate(-50%, -50%);
+  top: 16.5rem;
+  transform: translateX(-50%);
   height: 10rem;
-  max-width: 90%;
   box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.2);
-  z-index: 5;
 }
 
 .player--winner {
@@ -183,53 +169,98 @@ main {
   display: none;
 }
 
-/* 📱 Responsive Media Queries */
-@media (max-width: 768px) {
+/* -------------------------
+   RESPONSIVE MEDIA QUERIES
+--------------------------*/
+
+/* 📱 Small devices (phones < 480px) */
+@media (max-width: 480px) {
+  html {
+    font-size: 50%;
+  }
+
   main {
     flex-direction: column;
+    width: 95%;
     height: auto;
-    padding: 2rem;
   }
 
   .player {
-    flex: 1 1 100%;
-    padding: 4rem 2rem;
+    padding: 3rem 2rem;
+    flex: 100%;
   }
 
-  .btn--roll {
-    top: auto;
-    bottom: 8rem;
+  .score {
+    font-size: 5rem;
   }
 
-  .btn--hold {
-    top: auto;
-    bottom: 2rem;
+  .name {
+    font-size: 2.5rem;
+  }
+
+  .current-score {
+    font-size: 2.5rem;
+  }
+
+  .btn {
+    font-size: 1.4rem;
+    padding: 0.5rem 2rem;
   }
 
   .dice {
-    top: 40%;
     height: 8rem;
+    top: 12rem;
+  }
+
+  .btn--roll {
+    top: 30rem;
+  }
+
+  .btn--hold {
+    top: 36rem;
   }
 }
 
-@media (max-width: 480px) {
+/* 📱📲 Medium devices (tablets < 768px) */
+@media (max-width: 768px) {
   html {
     font-size: 55%;
   }
 
-  .name {
-    font-size: 2.4rem;
+  main {
+    flex-direction: column;
+    width: 90%;
+    height: auto;
+  }
+
+  .player {
+    padding: 4rem 3rem;
+    flex: 100%;
   }
 
   .score {
-    font-size: 4rem;
+    font-size: 6rem;
   }
 
-  .current-score {
-    font-size: 2.4rem;
+  .name {
+    font-size: 3rem;
+  }
+
+  .btn {
+    font-size: 1.6rem;
+    padding: 0.6rem 2.2rem;
   }
 
   .dice {
-    height: 6rem;
+    height: 9rem;
+    top: 14rem;
+  }
+
+  .btn--roll {
+    top: 33rem;
+  }
+
+  .btn--hold {
+    top: 40rem;
   }
 }
